@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.011">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.011" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Load Data" width="90" x="112" y="85">
+        <parameter key="process_location" value="Load Data"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Set Id" width="90" x="112" y="136">
+        <parameter key="process_location" value="Set Id"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Set Label" width="90" x="112" y="187">
+        <parameter key="process_location" value="Set Label"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Convert Integer Columns to Binomial" width="90" x="112" y="238">
+        <parameter key="process_location" value="Convert Integer Columns to Binomial"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Remove Missing Values" width="90" x="112" y="289">
+        <parameter key="process_location" value="Remove Missing Values"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Metrics grouped by affiliate status" width="90" x="313" y="136">
+        <parameter key="process_location" value="Metrics grouped by affiliate status"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Metrics grouped by language" width="90" x="313" y="187">
+        <parameter key="process_location" value="Metrics grouped by language"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.011" expanded="true" height="68" name="Execute Metrics grouped by mature status" width="90" x="313" y="238">
+        <parameter key="process_location" value="Metrics grouped by mature status"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <connect from_op="Execute Metrics grouped by affiliate status" from_port="result 1" to_port="result 1"/>
+      <connect from_op="Execute Metrics grouped by language" from_port="result 1" to_port="result 2"/>
+      <connect from_op="Execute Metrics grouped by mature status" from_port="result 1" to_port="result 3"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>
